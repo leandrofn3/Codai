@@ -32,7 +32,7 @@ document.getElementById("transiction-form").addEventListener("submit", function(
     getCashIn();
     getCashOut();
     getTotal();
-
+    
     alert("Lançamento adicionado com sucesso.");
 
 });
@@ -67,7 +67,7 @@ function logout() {
 }
 
 function getCashIn() {
-    const transactions = data.transactions
+    const transactions = data.transactions;
 
     const CashIn = transactions.filter((item) => item.type ==="1" )
 
@@ -75,38 +75,35 @@ function getCashIn() {
         let CashInHtml = ``;
         let limit = 0; 
 
-        if(CashIn.length > 5) {
-            limit = 5;
-            } else {
-            limit = CashIn.length;
-            }
+       if (CashIn.length > 5) {
+        limit = 5;
+       } else {
+        limit = CashIn.length;
 
-            for (let index = 0; index < limit; index++) {
-                CashInHtml += `
-                <div class="row mb-4">
-                <div class="col 12">
-                    <h3 class="fs-2"> ${CashIn[index].value.toFixed(2)} </h3>
-                        <div class="container p-0">
-                            <div class="row">
-                                <div class="col-12 col-md-8"> 
-                                    <p> ${CashIn[index].description} </p>                                               
-                                </div>
-                                <div class="col-12 col-md-3 d-flex justify-content-end">
-                                    ${CashIn[index].date}
-                                </div>
+       }
+
+       for (let index = 0; index < limit; index++) {
+        CashInHtml += `
+        <div class="row mb-4">
+            <div class="col 12">
+                <h3 class="fs-2"> ${CashIn[index].value.toFixed(2)} </h3>
+                    <div class="container p-0">
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p> ${CashIn[index].description} </p>                                              
+                            </div>
+                            <div class="col-12 col-md-3 d-flex justify-content-end">
+                                ${CashIn[index].date}
                             </div>
                         </div>
-                </div>
+                    </div>
             </div>
+        </div>
+            `
+        }
 
-                `
-                
-            }
-
-            document.getElementById("cash-in-list").innerHTML = CashInHtml;
-
+        document.getElementById("cash-in-list").innerHTML = CashInHtml;
     }
-
 } 
 
 function getCashOut() {
@@ -140,13 +137,13 @@ function getCashOut() {
                         </div>
                     </div>
             </div>
-        </div>                                   
+         </div>                                   
                     
            `
                     
         }
 
-        document.getElementById("cash-in-list").innerHTML= CashInHtml;
+        document.getElementById("cash-out-list").innerHTML= CashInHtml;
 
     }
      
@@ -164,7 +161,7 @@ function getTotal() {
         }
     })
 
-    document.getElementById("total").innerHTML = `R$ ${total.toFixed(2)}`;
+    document.getElementById("total").innerText = `R$ ${total.toFixed(2)}`;
 }
 
 function saveData(data){

@@ -49,6 +49,7 @@ document.getElementById("create-form").addEventListener("submit",function(e) {
 
     if (passaword.length < 8) {
         alert("Preencha a senha com no mínimo 8 digitos.");
+        return;
     }
 
     saveAccount( {
@@ -60,7 +61,7 @@ document.getElementById("create-form").addEventListener("submit",function(e) {
     myModal.hide();
 
     alert("Conta criada com sucesso.")
-})
+});
 
 function checklogged() {
     if(session) {

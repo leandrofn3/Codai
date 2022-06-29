@@ -1,9 +1,9 @@
 #login{
-    background: linear-gradient(120deg, #4c79d3 42.9%, #ffffff 43%) no-repeat, fixed;
+    background: linear-gradient(120deg, #4c79d3 44.9%, #ffffff 45%) no-repeat fixed;
 }
 
 #App{
-    background: linear-gradient(120deg, #ffffff 44.9%, #4c79d3 45%) no-repeat, fixed;
+    background: linear-gradient(120deg, #ffffff 44.9%, #4c79d3 45%) no-repeat fixed;
 }
 
 header{
@@ -106,4 +106,9 @@ cursor: pointer;
 
 .menu {
     margin-right: 20px;
+}
+
+.font-bold {
+    /* font-weight: bold; */
+    font-size: 2.5rem;
 }

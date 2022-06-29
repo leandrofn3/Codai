@@ -3,13 +3,13 @@ let logged= sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
 
 let data ={
-    transaction: []
+    transactions: [] 
 };
 
 document.getElementById ("button-logout").addEventListener("click", logout);
 
 // Adicionar Laçamento
-document.getElementById("button-logout").addEventListener("submit", function(e) {
+document.getElementById("transaction-form").addEventListener("submit", function(e) {
     e.preventDefault();
 
     const value = parseFloat(document.getElementById("value-input").value);
@@ -25,7 +25,7 @@ document.getElementById("button-logout").addEventListener("submit", function(e) 
     e.target.reset();
     myModal.hide();
 
-   getTransactions();
+    getTransactions();
 
     alert("Lançamento adicionado com sucesso.");
 
@@ -43,6 +43,7 @@ function checkLogged() {
          window.location.href = "index.html";
          return;
     }
+
     const dataUser = localStorage.getItem(logged); 
     if(dataUser) {
         data = JSON.parse(dataUser);
@@ -72,21 +73,22 @@ function getTransactions () {
                 type = "saída"; 
             }
 
-            transactionsHtml +=`
+            transactionsHtml += `
             <tr>
-            <th scope="row"> ${item.date} </th>
+                 <th scope="row"> ${item.date} </th>
                 <td> ${item.value.toFixed(2)} </td>
                 <td> ${type} </td>
                 <td> ${item.description} </td>
-        </tr>
-        `
+            </tr>
 
-        })
+         `
+
+        });
     }
 
-    document.getElementById("transactions-list").innerHTML; transactionsHtml;
+    document.getElementById("transactions-list").innerHTML = transactionsHtml;
 }
 
-function saveData(data) {
-    localStorage.setItem(data.login, JSON.stringify(data));
+function saveData(data){
+    localStorage.setItem(data.login, JSON.stringify(data))
 }
